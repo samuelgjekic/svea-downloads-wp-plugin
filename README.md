@@ -45,7 +45,7 @@ a WP_Widget. You can add the widget on frontend (If you enabled it in Settings >
 
 ![widget-frontend](https://github.com/user-attachments/assets/4eec3394-65a0-41db-a98a-6dc6da7dc863)
 
-### Manual Testing
+## Testing
 
 Verified plugin functionality by:
 - Enabling/disabling caching.
