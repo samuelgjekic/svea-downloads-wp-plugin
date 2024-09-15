@@ -40,8 +40,8 @@ After activation, navigate to `Settings -> Svea Checkout Downloads Settings` to 
 ### Frontend Display
 
 If disabled, the widget will only be seen in the admin dashboard. If enabled however, the widget will be available as shortcode and as
-a WP_Widget. You can add the widget on frontend (If you enabled it in Settings > Svea Checkout Downloads ) by using the shortcode:
-`[svea_downloads_widget]`
+a WP_Widget. You can add the widget on frontend (If you enabled it in Settings > Svea Checkout Downloads ) by using the shortcode: `[svea_downloads_widget]`
+
 ![widget-frontend](https://github.com/user-attachments/assets/4eec3394-65a0-41db-a98a-6dc6da7dc863)
 
 
