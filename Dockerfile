@@ -7,6 +7,10 @@ RUN docker-php-ext-install mysqli
 # Set the working directory
 WORKDIR /var/www/html
 
+# Install Composer
+RUN apt-get update && apt-get install -y curl git unzip \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Copy the plugin files into the WordPress plugins directory
 COPY ./svea-checkout-downloads /var/www/html/wp-content/plugins/svea-checkout-downloads
 
