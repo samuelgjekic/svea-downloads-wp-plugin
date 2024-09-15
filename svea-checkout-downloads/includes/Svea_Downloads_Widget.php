@@ -3,32 +3,35 @@
 namespace Svea_Checkout_Downloads;
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+    exit; // Make sure to exit if file is directly accessed
 }
 
+ /**
+  * The widget class which handles the Svea Downloads Widget
+  */
 class Svea_Downloads_Widget extends \WP_Widget {
 
     /**
      * The title of the widget
      * @var string
      */
-    protected $widget_title;
+    public $widget_title;
 
     /**
      * The description of the widget
      * @var string
      */
-    protected $widget_description;
+    public $widget_description;
 
     /**
      * The ID of the widget
      * @var string
      */
-    protected $widget_id = 'svea_downloads_widget';
+    public $widget_id = 'svea_downloads_widget';
 
     /**
      * The getter class
-     * Fetches the download count from the Svea Checkout Plugin .json on Wordpress.com
+     * Fetches the download count from the Svea Checkout Plugin API on Wordpress.com
      *
      * @var Svea_Downloads_Getter
      */

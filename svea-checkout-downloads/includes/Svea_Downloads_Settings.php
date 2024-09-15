@@ -3,15 +3,18 @@
 namespace Svea_Checkout_Downloads;
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+    exit; // Make sure to exit if file is directly accessed
 }
 
+ /**
+  * Settings class that handles the Svea Downloads widget custom settings
+  */
 class Svea_Downloads_Settings {
 
     /**
      * Register the settings and add settings page.
      */
-    public function __construct() {
+    public function initialize(): void{
         add_action('admin_menu', [$this, 'add_settings_page']);
         add_action('admin_init', [$this, 'register_settings']);
     }

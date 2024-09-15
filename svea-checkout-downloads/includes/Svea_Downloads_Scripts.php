@@ -6,6 +6,9 @@ if (!defined('ABSPATH')) {
     exit;
  } // Make sure to exit if file is directly accessed
 
+ /**
+  * Scripts class that handles loading scripts in Wordpress
+  */
  class Svea_Downloads_Scripts {
      
     /**

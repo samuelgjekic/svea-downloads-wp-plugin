@@ -5,7 +5,7 @@
 namespace Svea_Checkout_Downloads;
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+    exit; // Make sure to exit if file is directly accessed
 }
 ?>
 <div class="svea-checkout-plugin">

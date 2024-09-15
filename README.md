@@ -9,16 +9,17 @@ The **Svea Checkout Downloads** plugin displays download statistics for the Svea
 3. [Usage](#usage)
    * [Admin Settings](#admin-settings)
    * [Frontend Display](#frontend-display)
-4. [Classes and Methods](#classes-and-methods)
+4. [Testing](#testing)
+   * [Docker Testing](#docker)
+5. [Classes and Methods](#classes-and-methods)
+   * [Svea_Downloads_Widget](#svea_downloads_widget)
    * [Svea_Downloads_Settings](#svea_downloads_settings)
    * [Svea_Downloads_Scripts](#svea_downloads_scripts)
-5. [Caching Mechanism](#caching-mechanism)
-6. [API Integration](#api-integration)
-7. [Testing](#testing)
-   * [Unit Testing](#unit-testing)
-   * [Manual Testing](#manual-testing)
-8. [Contributing](#contributing)
-9. [License](#license)
+   * [Svea_Downloads_Getter](#svea_downloads_getter)
+   * [Cache_Manager](#cache-manager)
+   * [Language class(I18n)](#i18n)
+7. [Template System](#widget-template-files)
+9. [My Personal Notes](#my-personal-notes)
 
 ## Installation
 
@@ -43,6 +44,49 @@ If disabled, the widget will only be seen in the admin dashboard. If enabled how
 a WP_Widget. You can add the widget on frontend (If you enabled it in Settings > Svea Checkout Downloads ) by using the shortcode: `[svea_downloads_widget]`
 
 ![widget-frontend](https://github.com/user-attachments/assets/4eec3394-65a0-41db-a98a-6dc6da7dc863)
+
+### Manual Testing
+
+Verified plugin functionality by:
+- Enabling/disabling caching.
+- Displaying the widget on the frontend.
+- Checking update display accuracy.
+- Using error_logging and custom logging when debugging.
+- Unit Testing with Wordpress testing suite(dev build).
+
+### Docker
+
+To test the **Svea Checkout Downloads** plugin using Docker follow the below instructions.
+
+#### Docker Setup
+
+1. **Start Docker Container**
+
+   Clone the github repo and run docker by using the command:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+   This command will start the Docker container in detached mode, setting up WordPress with the Svea Downloads Plugin.
+
+
+2. **Access WordPress**
+
+   Open your web browser and go to `http://localhost:8000` to access the WordPress installation.
+
+3. **Install and Activate Plugin**
+
+   - Follow the WordPress installation process.
+   - Go to the WordPress admin dashboard (`http://localhost:8000/wp-admin`).
+   - Navigate to **Plugins** > **Installed Plugins**.
+   - Locate **Svea Checkout Downloads** and activate it.
+
+
+#### Notes
+
+- Ensure that the `docker-compose.yml` and `Dockerfile` are available in the root folder.
+- To avoid committing sensitive information or unnecessary files, `.gitignore` is used to exclude files such as `wp-content` from being tracked in Github.
 
 
 ## Classes and Methods
@@ -69,19 +113,6 @@ The `Plugin` class acts as the core controller for the plugin, managing initiali
    
 5. **Singleton Design Pattern**:
    - The class uses a singleton pattern to ensure only one instance of the plugin is created, promoting memory efficiency and ensuring a single point of control.
-
-#### Activation and Deactivation:
-The plugin implements activation and deactivation hooks to handle necessary tasks such as clearing caches or setting up environment-specific configurations when the plugin is enabled or disabled.
-
-```php
-register_activation_hook(__FILE__, function() {
-    // Code to run on plugin activation
-});
-
-register_deactivation_hook(__FILE__, function() {
-    // Code to run on plugin deactivation
-});
-```
 
 #### Class Properties:
 - **`PLUGIN_TITLE`**: Defines the plugin's internal title.
@@ -363,7 +394,7 @@ The `Template_Loader` class is responsible for managing the template files for r
 
 - `$templates`: An associative array that maps template keys to their filenames, making it easy to reference them.
   
-- `$template_path`: A string holding the path to the directory where templates are stored, allowing centralized control over template locations.
+- `$template_path`: A string holding the path to the directory where templates are stored.
 
 - `$widget_args`: An array containing arguments used to render the widget's HTML, which can be customized for specific use cases.
 
@@ -416,58 +447,13 @@ private static $templates = [
 
 
 
+## My Personal Notes
 
-### Manual Testing
+#### Development Time: 
+The plugin was developed over the course of 3-4 days, primarily during the weekend, as I was balancing other work commitments throughout the week.
 
-Verified plugin functionality by:
-- Enabling/disabling caching.
-- Displaying the widget on the frontend.
-- Checking update display accuracy.
-- Using error_logging and custom logging when debugging.
+#### Reflection: 
+I believe I have been thorough in my approach, demonstrating a solid understanding of WordPress development. The plugin adheres to best practices and closely follows the project’s guidelines, while also incorporating additional functionality beyond the basic requirements. Throughout the development process, I have ensured that the code adheres to PHP standards, with a focus on security measures aligned with WordPress security practices. I implemented Composer for autoloading, utilized WordPress internationalization (i18n) for handling multiple languages, and integrated caching mechanisms to optimize performance. Furthermore, the plugin is designed with scalability in mind, ensuring future enhancements can be easily integrated.
 
-### Testing the Plugin with Docker
-
-To test and develop the **Svea Checkout Downloads** plugin using Docker, you can use the provided Docker setup.
-
-#### Docker Setup
-
-1. **Start Docker Container**
-
-   Navigate to the root directory of your project where the `docker-compose.yml` file is located. Then, use the following command to start the Docker container:
-
-   ```bash
-   docker-compose up -d
-   ```
-
-   This command will start the Docker container in detached mode, setting up WordPress with your plugin.
-
-2. **Access WordPress**
-
-   Open your web browser and go to `http://localhost:8000` to access the WordPress installation.
-
-3. **Install and Activate Plugin**
-
-   - Follow the WordPress installation process if you haven’t done so already.
-   - Go to the WordPress admin dashboard (`http://localhost:8000/wp-admin`).
-   - Navigate to **Plugins** > **Installed Plugins**.
-   - Locate **Svea Checkout Downloads** and activate it.
-
-4. **Development and Testing**
-
-   - Make changes to your plugin code.
-   - The changes will be reflected in the Docker container as the volume is mounted.
-
-5. **Stopping Docker Container**
-
-   When you're done, you can stop the Docker container with the following command:
-
-   ```bash
-   docker-compose down
-   ```
-
-   This command will stop and remove the container.
-
-#### Notes
-
-- Ensure that the `docker-compose.yml` and `Dockerfile` are correctly configured.
-- To avoid committing sensitive information or unnecessary files, `.gitignore` is used to exclude files such as `wp-content` from being tracked in Github.
+#### Areas for Improvement: 
+While I focused on delivering a functional and scalable solution, I had several ideas for further enhancements. However, I aimed to strike a balance between staying within the project scope and showcasing my capabilities. Given the simplicity of the task—displaying the download count of another plugin—I ensured the code is structured in a way that allows for future scalability and ease of testing. Additional unit tests could be implemented to further verify functionality.

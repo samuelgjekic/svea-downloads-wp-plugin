@@ -8,6 +8,7 @@ if (!defined('ABSPATH')) {
 
 /**
  * Plugin Name: Svea Checkout Downloads
+ * Plugin URI: https://github.com/samuelgjekic/svea-downloads-wp-plugin
  * Description: Shows the total number of downloads of the Svea Checkout plugin.
  * Version: 1.0
  * Author: Samuel Gjekic
@@ -48,21 +49,21 @@ if ( ! class_exists( 'Svea_Checkout_Downloads\\Plugin' ) ) {
 
 
         /**
-         * Language class 
+         * Language class that handles the translations
          * @var I18n
          */
         public $I18n;
         
 
         /**
-         * The widget class which contains the widget
+         * The widget class which contains the widget module
          *
          * @var Svea_Downloads_Widget
          */
         public $widget;
         
         /**
-         * The settings class which contains the options for the widget
+         * The settings class which contains the settings module for the plugin
          * @var Svea_Downloads_Settings
          */
         public $settings;
@@ -87,9 +88,7 @@ if ( ! class_exists( 'Svea_Checkout_Downloads\\Plugin' ) ) {
          * Load plugin dependencies 
          */
         public function load_dependencies() {
-            // Load Composer files
             require_once SVEA_CHECKOUT_DOWNLOADS_DIR . '/vendor/autoload.php';
-            
         }
 
         public function init_modules(){;
@@ -98,8 +97,9 @@ if ( ! class_exists( 'Svea_Checkout_Downloads\\Plugin' ) ) {
             $this->I18n = new I18n();
             $this->I18n->initialize();
 
-            // Load settings
+            // Load settings module
             $this->settings = new Svea_Downloads_Settings();
+            $this->settings->initialize();
 
             // Load the widget module
             $this->widget = new Svea_Downloads_Widget();
@@ -130,8 +130,6 @@ if ( ! class_exists( 'Svea_Checkout_Downloads\\Plugin' ) ) {
 
             return $instance;
         }
-
-
     }
 
     $instance = Plugin::get_instance();

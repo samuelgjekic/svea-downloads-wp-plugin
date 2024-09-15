@@ -3,9 +3,12 @@
 namespace Svea_Checkout_Downloads;
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if not accessed directly and not running unit tests
+    exit; // Make sure to exit if file is directly accessed
 }
 
+ /**
+  * Getter class for fetching the download count from Svea Checkout Plugin API on Wordpress.
+  */
 class Svea_Downloads_Getter {
 
     /**
