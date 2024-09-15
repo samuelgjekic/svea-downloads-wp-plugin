@@ -22,8 +22,8 @@ The **Svea Checkout Downloads** plugin displays download statistics for the Svea
 
 ## Installation
 
-1. Download the plugin files.
-2. Upload to `/wp-content/plugins/`.
+1. Download the Github Repo.
+2. Upload the plugin folder to `/wp-content/plugins/`.
 3. Activate via the WordPress 'Plugins' menu.
 
 ## Setup
@@ -39,7 +39,11 @@ After activation, navigate to `Settings -> Svea Checkout Downloads Settings` to 
 
 ### Frontend Display
 
-When enabled, the plugin shows the download count on the frontend or admin dashboard.
+If disabled, the widget will only be seen in the admin dashboard. If enabled however, the widget will be available as shortcode and as
+a WP_Widget. You can add the widget on frontend (If you enabled it in Settings > Svea Checkout Downloads ) by using the shortcode:
+`[svea_downloads_widget]`
+![widget-frontend](https://github.com/user-attachments/assets/4eec3394-65a0-41db-a98a-6dc6da7dc863)
+
 
 ## Classes and Methods
 
