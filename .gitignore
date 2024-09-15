@@ -1,0 +1,6 @@
+# Ignore the tests folder on main branch
+/wp-content/
+
+# Ignore temporary files
+*.log
+*.tmp

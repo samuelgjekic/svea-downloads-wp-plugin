@@ -1,0 +1,17 @@
+{
+    "name": "samuelgjekic/svea-checkout-downloads",
+    "description": "A WordPress plugin to display the total number of downloads of the Svea Checkout plugin.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Svea_Checkout_Downloads\\": [
+                "includes/",
+                "templates/",
+                "languages/"
+            ]
+        }
+    },
+    "require": {
+        "php": "^7.2||^8.0"
+    }
+}

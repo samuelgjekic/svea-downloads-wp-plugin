@@ -1,0 +1,41 @@
+services:
+  wordpress:
+    build: .
+    container_name: wp-plugin-test
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: svea-checkout-downloads
+      WORDPRESS_DB_PASSWORD: svea-checkout-downloads
+      WORDPRESS_DB_NAME: svea-checkout-downloads
+    volumes:
+      - ./svea-checkout-downloads:/var/www/html/wp-content/plugins/svea-checkout-downloads
+      - ./wp-content:/var/www/html/wp-content
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mysql:5.7
+    container_name: wp-db
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: svea-checkout-downloads
+      MYSQL_USER: svea-checkout-downloads
+      MYSQL_PASSWORD: svea-checkout-downloads
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: wp-phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: somewordpress
+
+volumes:
+  db_data: {}

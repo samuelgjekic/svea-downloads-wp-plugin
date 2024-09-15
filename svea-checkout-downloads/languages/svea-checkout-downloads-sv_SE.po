@@ -1,0 +1,96 @@
+# Copyright (C) 2024 Samuel Gjekic
+# This file is distributed under the same license as the Svea Checkout Downloads plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Svea Checkout Downloads 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/svea-checkout-"
+"downloads\n"
+"POT-Creation-Date: 2024-09-14T22:25:51+00:00\n"
+"PO-Revision-Date: 2024-09-15 00:28+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Domain: svea-checkout-downloads\n"
+
+#. Plugin Name of the plugin
+#: svea-checkout-downloads.php templates/svea-downloads-widget.php:14
+msgid "Svea Checkout Downloads"
+msgstr "Svea Checkout Nedladdningar"
+
+#. Description of the plugin
+#: svea-checkout-downloads.php
+msgid "Shows the total number of downloads of the Svea Checkout plugin."
+msgstr ""
+"Visar det totala antal nedladdningar av Svea Checkout Plugin på WordPress."
+
+#. Author of the plugin
+#: svea-checkout-downloads.php
+msgid "Samuel Gjekic"
+msgstr ""
+
+#: includes/Svea_Downloads_Settings.php:61
+msgid "Enable Caching"
+msgstr "Aktivera cacheminnet"
+
+#: includes/Svea_Downloads_Settings.php:69
+msgid "Enable Widget Outside Admin Dashboard"
+msgstr "Aktivera widget utanför admin dashboard"
+
+#: includes/Svea_Downloads_Widget.php:50
+msgid "Svea Checkout Total Downloads"
+msgstr "Svea Checkout Nedladdningar"
+
+#: includes/Svea_Downloads_Widget.php:51
+msgid "Displays total downloads of the Svea Checkout plugin."
+msgstr ""
+"Visar det totala antalet nedladdningar för Svea Checkout Plugin på WordPress."
+
+#: includes/Svea_Downloads_Widget.php:81
+msgid "Could not retrieve download count. Please try again later."
+msgstr "Kunde inte hämta värde. Försök igen senare."
+
+#: includes/Svea_Downloads_Widget.php:92 includes/Svea_Downloads_Widget.php:120
+msgid "Template not found!"
+msgstr "Template inte hittat!"
+
+#: svea-checkout-downloads.php:82
+msgid "Svea Checkout Download Statistics"
+msgstr "Svea Checkout Statistik"
+
+#: svea-checkout-downloads.php:83
+msgid "Shows the total number of downloads of the Svea Checkout plugin"
+msgstr ""
+"Visar det totala antal nedladdningar av Svea Checkout Plugin på WordPress"
+
+#: templates/svea-downloads-widget-form.php:14
+msgid "Title:"
+msgstr "Titel:"
+
+#: templates/svea-downloads-widget-form.php:27
+msgid "Before Widget HTML:"
+msgstr "Före Widget HTML:"
+
+#: templates/svea-downloads-widget-form.php:40
+msgid "After Widget HTML:"
+msgstr "Efter Widget HTML:"
+
+#: templates/svea-downloads-widget-settings.php:13
+msgid "Svea Checkout Downloads Settings"
+msgstr "Svea Downloads Inställningar"
+
+#: templates/svea-downloads-widget.php:18
+msgid "Total Downloads"
+msgstr "Svea Checkout Nedladdningar"
+
+#. translators: %d is the number of times the plugin has been downloaded
+#: templates/svea-downloads-widget.php:24
+msgid "The Svea Checkout plugin has been downloaded %d times."
+msgstr "Svea Checkout Plugin har laddats hem %d gånger från WordPress."
+
+#: templates/svea-downloads-widget.php:31
+msgid "Last updated on:"
+msgstr "Senast uppdaterad:"
