@@ -64,16 +64,13 @@ To test the **Svea Checkout Downloads** plugin using Docker follow the below ins
 
    Clone the github repo and run docker by using the command:
 
+    ```bash
+   docker-compose up --build --no-cache
+   ```
+
    ```bash
-   docker-compose up -d
+   docker-compose up
    ```
-
-   In some cases you may have to build:
-     ```bash
-   docker-compose up --build
-   ```
-
-   This command will start the Docker container in detached mode, setting up WordPress with the Svea Downloads Plugin.
 
 
 2. **Access WordPress**
