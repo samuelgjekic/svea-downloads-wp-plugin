@@ -68,11 +68,6 @@ To test the **Svea Checkout Downloads** plugin using Docker follow the below ins
    docker-compose up --build --no-cache
    ```
 
-   ```bash
-   docker-compose up
-   ```
-
-
 2. **Access WordPress**
 
    Open your web browser and go to `http://localhost:8000` to access the WordPress installation.
