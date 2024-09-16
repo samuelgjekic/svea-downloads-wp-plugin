@@ -188,6 +188,7 @@ private function fetchDownloads(): int {
     return $data['downloaded'] ?? 0;
 }
 ```
+Note: `api.wordpress.org/stats/plugin/1.0/downloads.php?slug=[svea-checkout-for-woocommerce]` can be used to retrieve daily statistics.
 #### `set_cache_interval(int $seconds): void`
 
 
