@@ -8,6 +8,12 @@ if (!defined('ABSPATH')) {
 
 class Cache_Manager {
 
+     /**
+     * The key to use when storing and fetching transient
+     * @var string
+     */
+    const CACHE_KEY = 'svea_downloads_count';
+    
     /**
      * Get a cached value using a transient.
      *

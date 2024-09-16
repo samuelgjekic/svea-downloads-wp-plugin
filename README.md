@@ -68,6 +68,11 @@ To test the **Svea Checkout Downloads** plugin using Docker follow the below ins
    docker-compose up -d
    ```
 
+   In some cases you may have to build:
+     ```bash
+   docker-compose up --build
+   ```
+
    This command will start the Docker container in detached mode, setting up WordPress with the Svea Downloads Plugin.
 
 
@@ -188,7 +193,7 @@ private function fetchDownloads(): int {
     return $data['downloaded'] ?? 0;
 }
 ```
-Note: `api.wordpress.org/stats/plugin/1.0/downloads.php?slug=[svea-checkout-for-woocommerce]` can be used to retrieve daily statistics.
+Note: `api.wordpress.org/stats/plugin/1.0/downloads.php?slug=[svea-checkout-for-woocommerce]` can be used to retrieve daily statistics. However this is not implemented.
 #### `set_cache_interval(int $seconds): void`
 
 

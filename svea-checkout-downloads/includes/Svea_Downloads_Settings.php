@@ -12,11 +12,18 @@ if (!defined('ABSPATH')) {
 class Svea_Downloads_Settings {
 
     /**
+     * Cache Manager class
+     * @var Cache_Manager
+     */
+    public $cache_manager;
+
+    /**
      * Register the settings and add settings page.
      */
     public function initialize(): void{
         add_action('admin_menu', [$this, 'add_settings_page']);
         add_action('admin_init', [$this, 'register_settings']);
+        $this->cache_manager = new Cache_Manager();
     }
 
     /**
@@ -78,15 +85,22 @@ class Svea_Downloads_Settings {
 
     /**
      * Sanitize and validate the options.
+     * Will also clear the cache value if checkbox is unchecked.
      *
      * @param array $input The input data.
      * @return array The sanitized data.
      */
     public function sanitize_options($input) {
-
+        $current_options = get_option('svea_checkout_downloads_options', []);
+        
         $sanitized = [];
         $sanitized['enable_caching'] = isset($input['enable_caching']) ? (bool)$input['enable_caching'] : false;
         $sanitized['enable_outside_admin'] = isset($input['enable_outside_admin']) ? (bool)$input['enable_outside_admin'] : false;
+    
+        if (isset($current_options['enable_caching']) && $current_options['enable_caching'] && !$sanitized['enable_caching']) {
+            $this->cache_manager->delete($this->cache_manager::CACHE_KEY);
+        }
+    
         return $sanitized;
     }
 

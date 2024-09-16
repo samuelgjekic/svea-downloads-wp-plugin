@@ -25,10 +25,10 @@ class Svea_Downloads_Getter {
     public $cache_manager;
 
     /**
-     * The key to use when storing and fetching transient
+     * The URI to the Svea Checkout For Woocommerce plugin API
      * @var string
      */
-    const CACHE_KEY = 'svea_downloads_count';
+    const API_URI = 'https://api.wordpress.org/plugins/info/1.0/svea-checkout-for-woocommerce.json';
 
     public function __construct() {
         $this->cache_manager = new Cache_Manager();
@@ -54,7 +54,7 @@ class Svea_Downloads_Getter {
         if(!$useCaching){
         $downloads = $this->fetchDownloads();
         } else {
-        $cached_downloads = $this->cache_manager->exists(SELF::CACHE_KEY);
+        $cached_downloads = $this->cache_manager->get($this->cache_manager::CACHE_KEY);
         }
         
         /**
@@ -63,11 +63,12 @@ class Svea_Downloads_Getter {
          */
         if ($useCaching && ($cached_downloads === false)) {
             $downloads = $this->fetchDownloads();
-            $success = $this->cache_manager->set(self::CACHE_KEY, $downloads, $this->get_cache_interval());
+            $success = $this->cache_manager->set($this->cache_manager::CACHE_KEY, $downloads, $this->get_cache_interval());
             if (!$success) {
-                error_log(__METHOD__ . ' - Failed to set transient for ' . self::CACHE_KEY . ' with value: ' . $downloads);
+                error_log(__METHOD__ . ' - Failed to set transient for ' . $this->cache_manager::CACHE_KEY . ' with value: ' . $downloads);
             }
         }
+
         return $downloads;
     }
     
@@ -78,7 +79,7 @@ class Svea_Downloads_Getter {
      */
     private function fetchDownloads(): int {
 
-        $response = wp_remote_get('https://api.wordpress.org/plugins/info/1.0/svea-checkout-for-woocommerce.json');
+        $response = wp_remote_get(self::API_URI);
         if( is_wp_error($response)) {
             error_log(__METHOD__ . ' - API Error: ' . $response->get_error_message());
             return false;

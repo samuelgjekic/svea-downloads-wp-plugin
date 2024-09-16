@@ -75,7 +75,7 @@ class Svea_Downloads_Widget extends \WP_Widget {
      * @param array $instance The instance of the widget, needed for compatibility with WP_Widget
      */
     public function widget($args, $instance) {
-        $downloads = get_transient('svea_downloads_count');
+        $downloads = get_transient($this->getter->cache_manager::CACHE_KEY);
 
         if (false === $downloads) {
             $downloads = $this->getter->get_download_count();
